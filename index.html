@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="./js/linkList/linkedList.js"></script>
+    <script type="text/javascript" src="./js/linkList/twoWayLinkedList.js"></script>
+    <script type="text/javascript" src="./js/linkList/circleLinkedList.js"></script>
+    <script type="text/javascript" src="./js/heap.js"></script>
+    <script type="text/javascript" src="./js/sort/basicSorts.js"></script>
+    <script type="text/javascript" src="./js/sort/quickSort.js"></script>
+    <script type="text/javascript" src="./js/sort/mergeSort.js"></script>
+    <script type="text/javascript" src="./js/createCurry.js"></script>
+    <script type="text/javascript" src="./js/stack/stack.js"></script>
+    <script type="text/javascript" src="./js/sort/bucketSort.js"></script>
+    <script type="text/javascript" src="./js/sort/countingSort.js"></script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainDom">
+
+    </div>
+</body>
+<script type="text/javascript">
+    console.log("testLinkedList*************************************************************************************************************************************************************************************************************************");
+    let tempLinkedList = new LinkedList();
+    console.log(tempLinkedList.display());
+    console.log(tempLinkedList.findPres("longxixi"));
+    console.log(tempLinkedList.find("longxixi"));
+    tempLinkedList.insert("long", "head");
+    tempLinkedList.insert("longha", "long");
+    tempLinkedList.insert("longhaha", "longha");
+    console.log("middle",tempLinkedList.findMiddleNode());
+    console.log(tempLinkedList.display());
+    console.log(tempLinkedList.find("longxixi"));
+    tempLinkedList.insert("testRemove","longhaha");
+    console.log(tempLinkedList.findPres("testRemove"));
+    console.log(tempLinkedList.findPres("longxixi"));
+    console.log(tempLinkedList.display());
+    tempLinkedList.remove("testRemove");
+    console.log(tempLinkedList.display());
+    console.log(tempLinkedList.findByIndex(2));
+    console.log(tempLinkedList.findByIndex(4));
+    tempLinkedList.insertByIndex(1,"insert1");
+    console.log("middle",tempLinkedList.findMiddleNode());
+    console.log(tempLinkedList.display());
+    tempLinkedList.insertByIndex(6,"insertTail");
+    console.log("middle",tempLinkedList.findMiddleNode());
+    console.log(tempLinkedList.display());
+    tempLinkedList.reverseList();
+    console.log(tempLinkedList.display());
+    console.log("middle",tempLinkedList.findMiddleNode());
+    console.log(tempLinkedList.checkCircle());
+    let temptestCircle = new CircleList();
+    console.log(temptestCircle.checkCircle());
+    let tempLinkedList2 = new LinkedList();
+    let tempLinkedList3 = new LinkedList();
+    tempLinkedList2.insertByIndex(999,4);
+    tempLinkedList2.insertByIndex(999,10);
+    tempLinkedList2.insertByIndex(999,20);
+    tempLinkedList2.insertByIndex(999,33);
+    tempLinkedList3.insertByIndex(999,7);
+    tempLinkedList3.insertByIndex(999,9);
+    tempLinkedList3.insertByIndex(999,16);
+    tempLinkedList3.insertByIndex(999,20);
+    tempLinkedList3.insertByIndex(999,37);
+    console.log(linkedListMergeSortList(tempLinkedList2.head.next, tempLinkedList3.head.next));
+    let huiwen = new LinkedList();
+    huiwen.insertByIndex(999,"l");
+    huiwen.insertByIndex(999,"o");
+    // huiwen.insertByIndex(999,"l");
+    huiwen.insertByIndex(999,"k");
+    huiwen.insertByIndex(999,"o");
+    // huiwen.insertByIndex(999,"o");
+    huiwen.insertByIndex(999,"k");
+    huiwen.insertByIndex(999,"l");
+    huiwen.insertByIndex(999,"o");
+    huiwen.insertByIndex(999,"l");
+    console.log(huiwen.ifPalindrome());    
+
+    console.log("twoWayLinkedList*************************************************************************************************************************************************************************************************************************");
+    let tempTwoWayLinkedList = new TwoWayLinkedList();
+    tempTwoWayLinkedList.insert("long", "head");
+    tempTwoWayLinkedList.insert("longha", "long");
+    tempTwoWayLinkedList.insert("longhaha", "longha");
+    console.log(tempTwoWayLinkedList.display());
+    console.log(tempTwoWayLinkedList.displayReverse());
+    console.log(tempTwoWayLinkedList.find("longxixi"));
+
+    console.log("circleLinkedList*************************************************************************************************************************************************************************************************************************");
+    let tempCircleLinkedList = new CircleLinkedList();
+    tempCircleLinkedList.insert("龙哈哈","head");
+    tempCircleLinkedList.insert("龙xixi","龙哈哈");
+    tempCircleLinkedList.insert("long","龙xixi");
+    console.log(tempCircleLinkedList.display());
+    tempCircleLinkedList.delete("龙xixi");
+    console.log(tempCircleLinkedList.display());
+
+    console.log("heap*************************************************************************************************************************************************************************************************************************");
+    let tempHeap = new Heap([4,8,7,6,4,9,20,35,1,6,7,3]);
+    console.log(tempHeap.store);
+    tempHeap.heapSort();
+    console.log(tempHeap.store);
+
+    console.log("basicSorts*************************************************************************************************************************************************************************************************************************");
+    console.log(bubbleSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
+    console.log(insertSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
+    console.log(selectSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
+    
+    console.log("quickSort*************************************************************************************************************************************************************************************************************************");
+    console.log(quickSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14],0,21));
+    console.log(quickSortZoom([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
+
+    console.clear();
+    console.log("stackMulBase*************************************************************************************************************************************************************************************************************************");
+    console.log(mulBase(1647,8));
+    console.log(mulBase(164,9));
+    console.log(mulBase(16364,10));
+    console.log(calculate("3+5*8-6"));
+    console.log(calculate([34,"+",13,"*",9,"+","44","-",12,"/",3]));
+
+    console.clear();
+    console.log(mergeSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
+    console.log(kthNum([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3],3));
+    console.log(bucketSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
+    console.log(countingSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
+
+</script>
+</html>
