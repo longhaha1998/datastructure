@@ -7,7 +7,8 @@
     <script type="text/javascript" src="./js/linkList/linkedList.js"></script>
     <script type="text/javascript" src="./js/linkList/twoWayLinkedList.js"></script>
     <script type="text/javascript" src="./js/linkList/circleLinkedList.js"></script>
-    <script type="text/javascript" src="./js/heap.js"></script>
+    <script type="text/javascript" src="./js/heap/heapSort.js"></script>
+    <script type="text/javascript" src="./js/heap/heap.js"></script>
     <script type="text/javascript" src="./js/sort/basicSorts.js"></script>
     <script type="text/javascript" src="./js/sort/quickSort.js"></script>
     <script type="text/javascript" src="./js/sort/mergeSort.js"></script>
@@ -15,8 +16,8 @@
     <script type="text/javascript" src="./js/stack/stack.js"></script>
     <script type="text/javascript" src="./js/sort/bucketSort.js"></script>
     <script type="text/javascript" src="./js/sort/countingSort.js"></script>
-
-
+    <script type="text/javascript" src="./js/BST/BST.js"></script>
+    <script type="text/javascript" src="./test/excel.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -100,10 +101,17 @@
     console.log(tempCircleLinkedList.display());
 
     console.log("heap*************************************************************************************************************************************************************************************************************************");
-    let tempHeap = new Heap([4,8,7,6,4,9,20,35,1,6,7,3]);
+    let tempHeap = new HeapSort([4,8,7,6,4,9,20,35,1,6,7,3]);
     console.log(tempHeap.store);
-    tempHeap.heapSort();
+    tempHeap.sort();
     console.log(tempHeap.store);
+    let tempHeap2 = new Heap([{sortNum:1,data:0},{sortNum:10,data:"asd"},{sortNum:17,data:75},{sortNum:5,data:2},{sortNum:4,data:35},{sortNum:4,data:0},{sortNum:15,data:0},{sortNum:14,data:0},{sortNum:41,data:0},]);
+    console.info(tempHeap2.store);
+    console.log(tempHeap2.getMax());
+    console.log(tempHeap2.getMax());
+    tempHeap2.insert({sortNum:68, data:'longhaha'});
+    console.log(tempHeap2.getMax());
+    console.info(tempHeap2.store);
 
     console.log("basicSorts*************************************************************************************************************************************************************************************************************************");
     console.log(bubbleSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
@@ -114,7 +122,7 @@
     console.log(quickSort([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14],0,21));
     console.log(quickSortZoom([9,4,5,6,78,10,52,64,7,1,6,4,8,9,14,54,1,2,3,5,47,14]));
 
-    console.clear();
+    // console.clear();
     console.log("stackMulBase*************************************************************************************************************************************************************************************************************************");
     console.log(mulBase(1647,8));
     console.log(mulBase(164,9));
@@ -122,11 +130,42 @@
     console.log(calculate("3+5*8-6"));
     console.log(calculate([34,"+",13,"*",9,"+","44","-",12,"/",3]));
 
-    console.clear();
+    // console.clear();
     console.log(mergeSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
     console.log(kthNum([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3],3));
     console.log(bucketSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
     console.log(countingSort([4,3,987,5,74,6,2,3,4,97,84,56,1,454,87,4,1,59,741,6,51,24,0,5,3]));
 
+    // console.clear();
+    console.log("BST*************************************************************************************************************************************************************************************************************************");
+    let testBST = new BST();
+    testBST.insert(0)
+    testBST.insert(24)
+    testBST.insert(9)
+    testBST.insert(4)
+    testBST.insert(12)
+    testBST.insert(6)
+    testBST.insert(1)
+    testBST.insert(9)
+    testBST.insert(7)
+    testBST.insert(65)
+    testBST.insert(24)
+    testBST.insert(7)
+    testBST.insert(74)
+    testBST.insert(57)
+    testBST.insert(7)
+    testBST.insert(17)
+    testBST.insert(5)
+    testBST.insert(1)
+
+    testBST.insert(12)
+    testBST.insert(16)
+    testBST.insert(25)
+    testBST.insert(46)
+    console.log(testBST.inOrder(testBST.root));
+    console.log(testBST.getHeight(testBST.root));
+    testBST.remove(7);
+    console.log(testBST.inOrder(testBST.root));
+    console.log(testBST.getHeight(testBST.root));
 </script>
 </html>

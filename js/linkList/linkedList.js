@@ -132,7 +132,7 @@ function linkedListReverse() {
 function linkedListCheckCircle() {
     let fast = this.head.next;
     let slow = this.head;
-    if (fast !== null && fast.next !== null) {
+    while (fast !== null && fast.next !== null) {
         fast = fast.next.next;
         slow = slow.next;
         if (slow === fast) {
@@ -155,18 +155,18 @@ function linkedListFindMiddleNode() {
 function linkedListMergeSortList(listA, listB) {
     let a = listA;
     let b = listB;
-    while (listA !== null && listA.next !== null) {
-        if (listA.next.element < listA.element) {
-            return false;
-        }
-        listA = listA.next;
-    }
-    while (listB !== null && listB.next !== null) {
-        if (listB.next.element < listB.element) {
-            return false;
-        }
-        listB = listB.next;
-    }
+    // while (listA !== null && listA.next !== null) {
+    //     if (listA.next.element < listA.element) {
+    //         return false;
+    //     }
+    //     listA = listA.next;
+    // }
+    // while (listB !== null && listB.next !== null) {
+    //     if (listB.next.element < listB.element) {
+    //         return false;
+    //     }
+    //     listB = listB.next;
+    // }
     let resultList = new Node('head');
     let currentNode = null;
     if (a.element > b.element) {
@@ -203,18 +203,18 @@ function ifPalindrome() {
     let fast = this.head;
     let slow = this.head;
     let root = new Node("root");
-    while (fast !=null && fast.next != null) {
+    let currentNode = null;
+    while (fast !== null && fast.next !== null) {
         slow = slow.next;
         fast = fast.next.next;
-        let currentNode = new Node(slow.element);
+        currentNode = new Node(slow.element);
         currentNode.next = root.next;
         root.next = currentNode;
     }
-    if (fast !== null) {
-        slow = slow.next;
-    }
+    slow = slow.next;
+    root = root.next;
     while (slow !== null) {
-        if (slow.element !== root.next.element) {
+        if (slow.element !== root.element) {
             return false
         }
         slow = slow.next;

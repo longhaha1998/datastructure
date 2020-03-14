@@ -5,7 +5,7 @@ function binaryFind(arr, val){
     let low=0,high=arr.length-1;
 
     while(low<=high){
-        let middle = Math.floor((high-low)/2);
+        let middle = Math.floor((high+low)/2);
         if(arr[middle] === val){
             return middle;
         }else if(arr[middle]<val){
@@ -26,7 +26,7 @@ function findFirstEqual(arr, val){
     let low=0, high=arr.length-1;
 
     while(low === high){
-        let middle = Math.floor((high-low)/2);
+        let middle = Math.floor((high+low)/2);
         if(arr[middle]>val){
             high = middle-1;
         }else if(arr[middle]<val){
@@ -50,7 +50,7 @@ function findLastEqual(arr, val){
     let low=0,high=arr.length-1;
 
     while(low<=high){
-        let middle = Math.floor((high-low)/2);
+        let middle = Math.floor((high+low)/2);
         if(arr[middle]<val){
             low = middle+1;
         }else if(arr[middle]>val){
@@ -72,15 +72,15 @@ function findFirstLarger(arr, val){
     let low=0, high=arr.length-1;
 
     while(low<=high){
-        let middle = Math.floor((high-low)/2);
-        if(arr[middle]<middle){
-            low = middle+1;
-        }else{
+        let middle = Math.floor((high+low)/2);
+        if(arr[middle]>=val){
             if(middle === 0 || arr[middle-1]<val){
                 return middle;
             }else{
                 high = middle-1;
             }
+        }else{
+            low = middle+1;
         }
     }
 }
@@ -92,15 +92,15 @@ function findLastSmaller(arr, val){
     let low=0, high=arr.length-1;
 
     while(low<=high){
-        let middle = Math.floor((high-low)/2);
-        if(arr[middle]>val){
-            high = middle-1;
-        }else{
+        let middle = Math.floor((high+low)/2);
+        if(arr[middle]<=val){
             if(middle === arr.length-1 || arr[middle+1]>val){
                 return middle;
             }else{
                 low = middle+1;
             }
+        }else{
+            high = middle-1
         }
     }
 }

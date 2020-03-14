@@ -16,7 +16,7 @@ function quickSort(arr, left, right) {
         quickSort(arr, left, pivotIndex-1<left?left:pivotIndex - 1);
         quickSort(arr, pivotIndex+1>right?right:pivotIndex+1, right);
     }
-    return arr;
+    // return arr;
 }
 
 // 不是原地排序
